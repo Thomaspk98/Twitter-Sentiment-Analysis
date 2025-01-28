@@ -8,7 +8,7 @@ def load_model_and_vectorizer():
     vectorizer = joblib.load('tfidf_vectorizer.pkl')
     return model, vectorizer
 
-# Clean the input text
+# Clean the input text using regex
 def clean_text(text):
     text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
     text = re.sub(r'@\w+|\#\w+', '', text)

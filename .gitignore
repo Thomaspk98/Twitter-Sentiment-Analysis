@@ -9,3 +9,6 @@ venv.bak/
 
 #Large files
 training.1600000.processed.noemoticon.csv
+
+#Keys
+tokens.py

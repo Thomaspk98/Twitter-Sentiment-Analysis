@@ -14,7 +14,7 @@ def load_data(file_path):
     data.columns = ['target', 'ids', 'date', 'flag', 'user', 'text']
     return data
 
-# Step 2: Preprocess the text data
+# Step 2: Preprocess the text data using regex
 def clean_text(text):
     text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
     text = re.sub(r'@\w+|\#\w+', '', text)
@@ -28,14 +28,14 @@ def preprocess_data(data):
     data['target'] = data['target'].map({0: 'negative', 2: 'neutral', 4: 'positive'})
     return data
 
-# Step 3: Split the dataset
+# Step 3: Split the dataset into training and testing data
 def split_data(data):
     x = data['cleaned_text']
     y = data['target']
     X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.5, random_state=42)
     return X_train, X_test, y_train, y_test
 
-# Step 4: Feature extraction using TF-IDF
+# Step 4: Feature extraction using TF-IDF vectorizer
 def extract_features(X_train, X_test):
     tfidf = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
     X_train_tfidf = tfidf.fit_transform(X_train)

@@ -1,12 +1,12 @@
 import tweepy
 import pandas as pd
-from datetime import datetime
+import tokens as t
 
 # Twitter API credentials
-API_KEY = 'Pla9hWD0iM3BFErKGVmwF1Plo'
-API_KEY_SECRET = 'h2Amv1WWAnrzHmIecZYkEMdMJp1LEGCuZ2y661TJUkxeS4SZcb'
-ACCESS_TOKEN = '1591906146910339074-36xM1vzQ2VM0R0nsGUDWh7GwhvSf43'
-ACCESS_TOKEN_SECRET = 'B5Bn4QdgdmuH1QQltQkV7kOVc24xqKaj4Pc4IJFQh9nQF'
+API_KEY = t.AK
+API_KEY_SECRET = t.AKS
+ACCESS_TOKEN = t.AT
+ACCESS_TOKEN_SECRET = t.ATS
 
 # Authenticate with Twitter API
 def authenticate_twitter():
